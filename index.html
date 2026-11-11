@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Nomad Karavan Coffee | Tatvan Sahili</title>
+  <title>Nomad Karavan Coffee</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0e0c0b;
-      --card-bg: #181412;
-      --card-border: rgba(200, 90, 50, 0.22);
-      --terracotta: #c85a32;
-      --terracotta-glow: rgba(200, 90, 50, 0.35);
+      --bg: #0b0908;
+      --card-bg: #14110f;
+      --card-border: rgba(217, 98, 43, 0.22);
+      --ember: #d9622b;
+      --ember-glow: rgba(217, 98, 43, 0.45);
+      --warm-fire: #f59e0b;
       --sand: #ede2d8;
-      --text: #fbf7f4;
-      --text-muted: #9e8e82;
-      --accent: #e07a4f;
+      --text: #fdfaf7;
+      --text-muted: #998a80;
     }
 
     * {
@@ -34,10 +34,9 @@
       background-color: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      padding-bottom: 90px;
+      padding-bottom: 95px;
       line-height: 1.4;
-      background-image: radial-gradient(circle at 50% 0%, rgba(200, 90, 50, 0.22) 0%, transparent 55%),
-                        radial-gradient(circle at 100% 40%, rgba(138, 56, 26, 0.12) 0%, transparent 50%);
+      background-image: radial-gradient(circle at 50% 15%, rgba(217, 98, 43, 0.18) 0%, transparent 60%);
       background-attachment: fixed;
     }
 
@@ -61,7 +60,7 @@
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid var(--card-border);
-      background: rgba(14, 12, 11, 0.94);
+      background: rgba(11, 9, 8, 0.95);
       backdrop-filter: blur(14px);
       position: sticky;
       top: 0;
@@ -77,7 +76,7 @@
     }
 
     .back-btn {
-      background: #221a16;
+      background: #1c1613;
       border: 1px solid var(--card-border);
       color: var(--sand);
       padding: 6px 14px;
@@ -87,90 +86,93 @@
       cursor: pointer;
     }
 
-    /* Hero / Karavan Başlığı */
+    /* GECE & KAMP ATEŞİ HERO */
     .hero-banner {
       position: relative;
-      padding: 34px 20px 24px;
+      padding: 65px 20px 40px;
       text-align: center;
-      background: linear-gradient(180deg, rgba(14,12,11,0.2) 0%, var(--bg) 95%),
-                  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80') center/cover;
+      background: 
+        linear-gradient(180deg, rgba(11, 9, 8, 0.3) 0%, rgba(11, 9, 8, 0.85) 75%, var(--bg) 100%),
+        url('https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       border-bottom: 1px solid var(--card-border);
+      overflow: hidden;
     }
 
-    .location-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
-      background: rgba(28, 20, 16, 0.85);
-      border: 1px solid var(--terracotta);
-      border-radius: 30px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--sand);
-      margin-bottom: 12px;
-      box-shadow: 0 0 15px var(--terracotta-glow);
+    /* Ateş Közü Canlı Parıltı Efekti */
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 90px;
+      background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.35) 0%, rgba(217, 98, 43, 0.2) 50%, transparent 80%);
+      filter: blur(20px);
+      pointer-events: none;
+      animation: emberFlicker 3s infinite alternate ease-in-out;
+    }
+
+    @keyframes emberFlicker {
+      0% { opacity: 0.6; transform: translateX(-50%) scale(0.95); }
+      100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
     }
 
     .hero-banner h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.15rem;
+      font-size: 2.3rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 6px;
+      letter-spacing: 1px;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8), 0 0 35px var(--ember-glow);
+      margin-bottom: 24px;
     }
 
-    .hero-desc {
-      color: var(--text-muted);
-      font-size: 0.86rem;
+    .cta-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       max-width: 320px;
-      margin: 0 auto 14px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
     }
 
-    .weather-strip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(24, 20, 18, 0.9);
-      border: 1px solid var(--card-border);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      margin-bottom: 18px;
-    }
-
-    .dot-online {
-      width: 8px;
-      height: 8px;
-      background: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
-    }
-
-    .btn-main-menu {
+    .btn-main {
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto;
-      background: var(--terracotta);
-      color: #fff;
-      padding: 14px 20px;
-      border-radius: 16px;
-      font-size: 1rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 6px 20px var(--terracotta-glow);
+      transition: transform 0.2s ease;
     }
 
-    /* Blok Kapsayıcılar */
+    .btn-main:active { transform: scale(0.97); }
+
+    .btn-craft {
+      background: linear-gradient(135deg, #d9622b 0%, #b84917 100%);
+      color: #fff;
+      box-shadow: 0 6px 25px var(--ember-glow);
+    }
+
+    .btn-menu {
+      background: rgba(24, 20, 18, 0.85);
+      border: 1px solid var(--card-border);
+      color: var(--sand);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Kapsayıcılar */
     .section-wrap {
       max-width: 540px;
       margin: 0 auto;
-      padding: 20px 18px 4px;
+      padding: 22px 18px 4px;
     }
 
     .section-head {
@@ -189,85 +191,236 @@
       gap: 6px;
     }
 
-    .section-more {
-      font-size: 0.75rem;
-      color: var(--accent);
-      font-weight: 600;
-      cursor: pointer;
+    /* KENDİ KAHVENİ TASARLA STÜDYOSU */
+    .crafter-wrap {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 16px 18px 120px;
     }
 
-    /* Yatay Kaydırmalı "İmza Lezzetler" */
-    .horizontal-scroll {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      padding-bottom: 6px;
-    }
-    .horizontal-scroll::-webkit-scrollbar { display: none; }
-
-    .featured-card {
-      min-width: 200px;
-      background: var(--card-bg);
+    .live-preview-box {
+      background: linear-gradient(180deg, #1d1714 0%, #120e0c 100%);
       border: 1px solid var(--card-border);
-      border-radius: 16px;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .featured-card img {
-      width: 100%;
-      height: 110px;
-      object-fit: cover;
-    }
-
-    .featured-body {
-      padding: 10px 12px 12px;
-    }
-
-    .featured-title {
-      font-weight: 700;
-      font-size: 0.88rem;
-      margin-bottom: 3px;
-    }
-
-    .featured-price {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      color: var(--accent);
-      font-size: 0.95rem;
-    }
-
-    /* Sahil Masası İstek Tuşları (4'lü Grid) */
-    .quick-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    .quick-box {
-      background: #1c1714;
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 12px 8px;
+      border-radius: 20px;
+      padding: 22px;
       text-align: center;
-      cursor: pointer;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 26px rgba(0,0,0,0.5);
     }
 
-    .quick-box span {
-      display: block;
-      font-size: 1.3rem;
+    .cup-graphic {
+      width: 70px;
+      height: 95px;
+      margin: 0 auto 12px;
+      border: 3px solid var(--sand);
+      border-radius: 0 0 16px 16px;
+      position: relative;
+      overflow: hidden;
+      background: #231914;
+      box-shadow: 0 0 18px rgba(217, 98, 43, 0.25);
+    }
+
+    .liquid-milk {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: #d4a373;
+      transition: background-color 0.3s ease;
+    }
+
+    .liquid-coffee {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 35%;
+      background: #472412;
+    }
+
+    .live-recipe-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
       margin-bottom: 4px;
     }
 
-    .quick-box p {
-      font-size: 0.74rem;
+    .live-recipe-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      min-height: 18px;
+    }
+
+    .option-group {
+      margin-bottom: 20px;
+    }
+
+    .group-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--sand);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .chips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .chips-grid.three-col {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .chip-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 12px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .chip-btn.active {
+      background: var(--ember);
+      border-color: var(--ember);
+      color: #fff;
+      box-shadow: 0 4px 16px var(--ember-glow);
+    }
+
+    .chip-title {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .chip-sub {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .chip-btn.active .chip-sub {
+      color: #ffe6dc;
+    }
+
+    /* Crafter Sabit Alt Bar */
+    .crafter-bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 540px;
+      margin: 0 auto;
+      background: rgba(14, 11, 10, 0.96);
+      backdrop-filter: blur(18px);
+      border-top: 1px solid var(--card-border);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      z-index: 100;
+    }
+
+    .crafter-total {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .crafter-total span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
       font-weight: 600;
+    }
+
+    .crafter-total b {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.45rem;
+      color: var(--warm-fire);
+    }
+
+    .btn-show-barista {
+      background: var(--ember);
+      color: #fff;
+      border: none;
+      padding: 13px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 18px var(--ember-glow);
+    }
+
+    /* Modal Fiş */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      z-index: 300;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .receipt-card {
+      background: #171310;
+      border: 2px dashed var(--ember);
+      border-radius: 20px;
+      max-width: 340px;
+      width: 100%;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .receipt-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--sand);
+      margin-bottom: 12px;
+    }
+
+    .receipt-list {
+      text-align: left;
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding: 12px 0;
+      margin-bottom: 14px;
+      font-size: 0.86rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
       color: var(--sand);
     }
 
-    /* Kategori Ekranı (Büyük Kartlar) */
+    .btn-close-modal {
+      background: #231b17;
+      color: var(--sand);
+      border: 1px solid var(--card-border);
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* Kategori Ekranı */
     .cat-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -296,7 +449,7 @@
     .cat-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(14,12,11,0.92) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(11,9,8,0.92) 100%);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -311,11 +464,11 @@
 
     .cat-count {
       font-size: 0.72rem;
-      color: var(--accent);
+      color: var(--warm-fire);
       font-weight: 600;
     }
 
-    /* Ürün Detay Listesi */
+    /* Ürün Listesi */
     .items-container {
       max-width: 540px;
       margin: 0 auto;
@@ -361,7 +514,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
       font-size: 1.05rem;
-      color: var(--accent);
+      color: var(--warm-fire);
     }
 
     .product-desc {
@@ -376,8 +529,8 @@
       font-weight: 700;
       padding: 2px 7px;
       border-radius: 5px;
-      background: rgba(200, 90, 50, 0.15);
-      color: var(--accent);
+      background: rgba(217, 98, 43, 0.15);
+      color: var(--warm-fire);
       display: inline-block;
     }
 
@@ -406,7 +559,7 @@
       right: 0;
       max-width: 540px;
       margin: 0 auto;
-      background: rgba(16, 13, 11, 0.95);
+      background: rgba(14, 11, 10, 0.95);
       backdrop-filter: blur(18px);
       border-top: 1px solid var(--card-border);
       padding: 10px 16px;
@@ -430,13 +583,13 @@
     }
 
     .btn-nav-home {
-      background: #251c17;
+      background: #201814;
       color: var(--sand);
       border: 1px solid var(--card-border);
     }
 
     .btn-wifi {
-      background: var(--terracotta);
+      background: var(--ember);
       color: #fff;
     }
 
@@ -446,7 +599,7 @@
       top: 20px;
       left: 50%;
       transform: translateX(-50%) translateY(-100px);
-      background: var(--terracotta);
+      background: var(--ember);
       color: #fff;
       padding: 11px 20px;
       border-radius: 25px;
@@ -454,8 +607,7 @@
       font-weight: 600;
       box-shadow: 0 6px 20px rgba(0,0,0,0.5);
       transition: transform 0.3s ease;
-      z-index: 200;
-      text-align: center;
+      z-index: 400;
     }
     .toast.show { transform: translateX(-50%) translateY(0); }
   </style>
@@ -464,83 +616,38 @@
 
   <div id="toast" class="toast">📶 Bildirim</div>
 
+  <!-- FİŞ MODAL -->
+  <div id="receiptModal" class="modal-overlay">
+    <div class="receipt-card">
+      <div class="receipt-title">☕ Barista Sipariş Fişi</div>
+      <div class="receipt-list" id="receiptContent"></div>
+      <p style="font-size: 0.74rem; color: var(--text-muted); margin-bottom: 14px;">
+        Bu ekranı baristaya göstererek sipariş verebilirsin.
+      </p>
+      <button class="btn-close-modal" onclick="closeReceipt()">Kapat</button>
+    </div>
+  </div>
+
   <!-- 1. GÖRÜNÜM: ANA SAYFA -->
   <section id="view-home" class="view-section active">
-    
     <div class="hero-banner">
-      <div class="location-badge">📍 TATVAN SAHİL KORDONU</div>
-      <h1>NOMAD KARAVAN</h1>
-      <p class="hero-desc">Van Gölü kıyısında özel kavrum kahveler, taze kruvasan ve göl esintisi.</p>
-      
-      <div class="weather-strip">
-        <div class="dot-online"></div>
-        <span>Açık • Tatvan Sahili 16°C Hafif Esintili</span>
-      </div>
+      <h1>NOMAD KARAVAN COFFEE</h1>
 
-      <button class="btn-main-menu" onclick="showCategories()">
-        📖 TÜM MENÜYÜ GÖR
-      </button>
-    </div>
-
-    <!-- Hızlı Masa Servisi İstekleri -->
-    <div class="section-wrap">
-      <div class="section-head">
-        <span class="section-title">⚡ Masaya Hızlı İstek</span>
-      </div>
-      <div class="quick-grid">
-        <div class="quick-box" onclick="notify('Masa için su istendi 👍')">
-          <span>💧</span>
-          <p>Su İste</p>
-        </div>
-        <div class="quick-box" onclick="notify('Masa için peçete istendi 👍')">
-          <span>🧻</span>
-          <p>Peçete İste</p>
-        </div>
-        <div class="quick-box" onclick="copyWifi()">
-          <span>📶</span>
-          <p>Wi-Fi Al</p>
-        </div>
+      <div class="cta-container">
+        <button class="btn-main btn-craft" onclick="showCrafter()">
+          🔥 KENDİ KAHVENİ TASARLA
+        </button>
+        <button class="btn-main btn-menu" onclick="showCategories()">
+          📖 Menüyü İncele
+        </button>
       </div>
     </div>
 
-    <!-- Karavanın İmzaları (Yatay Kaydırmalı Vitrin) -->
+    <!-- Harita -->
     <div class="section-wrap">
       <div class="section-head">
-        <span class="section-title">⭐ Karavanın İmzaları</span>
-        <span class="section-more" onclick="showCategories()">Tümünü Aç →</span>
-      </div>
-      <div class="horizontal-scroll">
-        <div class="featured-card" onclick="openCategory('sicak', 'Sıcak Kahveler')">
-          <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=400&q=80" alt="Flat White">
-          <div class="featured-body">
-            <div class="featured-title">Flat White</div>
-            <div class="featured-price">110 ₺</div>
-          </div>
-        </div>
-
-        <div class="featured-card" onclick="openCategory('soguk', 'Buzlu Kahveler')">
-          <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=400&q=80" alt="Cold Brew">
-          <div class="featured-body">
-            <div class="featured-title">18 Saat Cold Brew</div>
-            <div class="featured-price">125 ₺</div>
-          </div>
-        </div>
-
-        <div class="featured-card" onclick="openCategory('tatli', 'Tatlılar')">
-          <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=400&q=80" alt="San Sebastian">
-          <div class="featured-body">
-            <div class="featured-title">San Sebastian</div>
-            <div class="featured-price">145 ₺</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tatvan Sahil Konumu ve Harita -->
-    <div class="section-wrap">
-      <div class="section-head">
-        <span class="section-title">📍 Tatvan Sahil Noktası</span>
-        <span class="section-more">09:00 - 23:30</span>
+        <span class="section-title">📍 Karavan Konumu</span>
+        <span style="font-size: 0.74rem; color: var(--warm-fire);">09:00 - 23:30</span>
       </div>
       <div class="map-frame">
         <iframe 
@@ -550,10 +657,135 @@
         </iframe>
       </div>
     </div>
-
   </section>
 
-  <!-- 2. GÖRÜNÜM: KATEGORİ SEÇİM EKRANI -->
+  <!-- 2. GÖRÜNÜM: KENDİ KAHVENİ TASARLA -->
+  <section id="view-crafter" class="view-section">
+    <div class="top-header">
+      <span class="brand-title">Kahve Tasarımı</span>
+      <button class="back-btn" onclick="showHome()">← Vazgeç</button>
+    </div>
+
+    <div class="crafter-wrap">
+      <div class="live-preview-box">
+        <div class="cup-graphic">
+          <div class="liquid-milk" id="cupMilk"></div>
+          <div class="liquid-coffee"></div>
+        </div>
+        <div class="live-recipe-title" id="craftTitle">Sıcak Latte</div>
+        <div class="live-recipe-sub" id="craftSub">Standart reçete ile hazırlanır</div>
+      </div>
+
+      <!-- Sıcaklık -->
+      <div class="option-group">
+        <div class="group-label">1. Sıcaklık</div>
+        <div class="chips-grid">
+          <div class="chip-btn active" data-type="temp" onclick="selectOption('temp', this, 0, 'Sıcak')">
+            <span class="chip-title">🔥 Sıcak</span>
+            <span class="chip-sub">Kadifemsi köpük</span>
+          </div>
+          <div class="chip-btn" data-type="temp" onclick="selectOption('temp', this, 0, 'Buzlu')">
+            <span class="chip-title">🧊 Buzlu (İced)</span>
+            <span class="chip-sub">Buz ferahlığı</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Taban -->
+      <div class="option-group">
+        <div class="group-label">2. Kahve Tabanı</div>
+        <div class="chips-grid">
+          <div class="chip-btn active" data-type="base" onclick="selectOption('base', this, 85, 'Latte')">
+            <span class="chip-title">Latte</span>
+            <span class="chip-sub">85 ₺</span>
+          </div>
+          <div class="chip-btn" data-type="base" onclick="selectOption('base', this, 80, 'Americano')">
+            <span class="chip-title">Americano</span>
+            <span class="chip-sub">80 ₺</span>
+          </div>
+          <div class="chip-btn" data-type="base" onclick="selectOption('base', this, 95, 'Cold Brew')">
+            <span class="chip-title">Cold Brew</span>
+            <span class="chip-sub">95 ₺</span>
+          </div>
+          <div class="chip-btn" data-type="base" onclick="selectOption('base', this, 90, 'Cappuccino')">
+            <span class="chip-title">Cappuccino</span>
+            <span class="chip-sub">90 ₺</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Süt -->
+      <div class="option-group">
+        <div class="group-label">3. Süt Türü</div>
+        <div class="chips-grid three-col">
+          <div class="chip-btn active" data-type="milk" onclick="selectOption('milk', this, 0, 'Normal Süt')">
+            <span class="chip-title">Normal</span>
+            <span class="chip-sub">+0 ₺</span>
+          </div>
+          <div class="chip-btn" data-type="milk" onclick="selectOption('milk', this, 15, 'Yulaf Sütü')">
+            <span class="chip-title">Yulaf</span>
+            <span class="chip-sub">+15 ₺</span>
+          </div>
+          <div class="chip-btn" data-type="milk" onclick="selectOption('milk', this, 20, 'Badem Sütü')">
+            <span class="chip-title">Badem</span>
+            <span class="chip-sub">+20 ₺</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Şurup -->
+      <div class="option-group">
+        <div class="group-label">4. Şurup (Aroma)</div>
+        <div class="chips-grid">
+          <div class="chip-btn active" data-type="syrup" onclick="selectOption('syrup', this, 0, 'Şurupsuz')">
+            <span class="chip-title">Şurupsuz</span>
+            <span class="chip-sub">+0 ₺</span>
+          </div>
+          <div class="chip-btn" data-type="syrup" onclick="selectOption('syrup', this, 10, 'Vanilya')">
+            <span class="chip-title">Vanilya</span>
+            <span class="chip-sub">+10 ₺</span>
+          </div>
+          <div class="chip-btn" data-type="syrup" onclick="selectOption('syrup', this, 10, 'Karamel')">
+            <span class="chip-title">Karamel</span>
+            <span class="chip-sub">+10 ₺</span>
+          </div>
+          <div class="chip-btn" data-type="syrup" onclick="selectOption('syrup', this, 10, 'Fındık')">
+            <span class="chip-title">Fındık</span>
+            <span class="chip-sub">+10 ₺</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shot -->
+      <div class="option-group">
+        <div class="group-label">5. Espresso Gücü</div>
+        <div class="chips-grid">
+          <div class="chip-btn active" data-type="shot" onclick="selectOption('shot', this, 0, 'Tek Shot')">
+            <span class="chip-title">Standart Shot</span>
+            <span class="chip-sub">+0 ₺</span>
+          </div>
+          <div class="chip-btn" data-type="shot" onclick="selectOption('shot', this, 25, 'Ekstra Shot')">
+            <span class="chip-title">Double Shot</span>
+            <span class="chip-sub">+25 ₺</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Canlı Alt Bar -->
+    <div class="crafter-bottom">
+      <div class="crafter-total">
+        <span>Tutar</span>
+        <b id="livePriceText">85 ₺</b>
+      </div>
+      <button class="btn-show-barista" onclick="openReceipt()">
+        ☕ Baristaya Göster
+      </button>
+    </div>
+  </section>
+
+  <!-- 3. GÖRÜNÜM: KATEGORİ SEÇİMİ -->
   <section id="view-categories" class="view-section">
     <div class="top-header">
       <span class="brand-title">Nomad Menü</span>
@@ -565,7 +797,7 @@
         <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=400&q=80" alt="Sıcak Kahveler">
         <div class="cat-overlay">
           <span class="cat-name">Sıcak Kahveler</span>
-          <span class="cat-count">Espresso & Latte</span>
+          <span class="cat-count">Espresso & Sütlü</span>
         </div>
       </div>
 
@@ -573,7 +805,7 @@
         <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=400&q=80" alt="Soğuk Kahveler">
         <div class="cat-overlay">
           <span class="cat-name">Soğuk & Buzlu</span>
-          <span class="cat-count">Cold Brew & Frappe</span>
+          <span class="cat-count">Cold Brew & İced</span>
         </div>
       </div>
 
@@ -595,16 +827,13 @@
     </div>
   </section>
 
-  <!-- 3. GÖRÜNÜM: ÜRÜN LİSTESİ -->
+  <!-- 4. GÖRÜNÜM: ÜRÜN LİSTESİ -->
   <section id="view-products" class="view-section">
     <div class="top-header">
       <span class="brand-title" id="currentCategoryTitle">Kategori</span>
       <button class="back-btn" onclick="showCategories()">← Kategoriler</button>
     </div>
-
-    <div class="items-container" id="productsContainer">
-      <!-- Dinamik yüklenecek -->
-    </div>
+    <div class="items-container" id="productsContainer"></div>
   </section>
 
   <!-- Alt Sabit Bar -->
@@ -618,86 +847,65 @@
   </footer>
 
   <script>
-    const menuData = {
-      sicak: [
-        {
-          name: "Flat White",
-          price: "110 ₺",
-          desc: "Çift shot ristretto espresso ve mikro süt köpüğü.",
-          tag: "İmza",
-          img: "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=260&q=80"
-        },
-        {
-          name: "Cortado",
-          price: "100 ₺",
-          desc: "Eşit oranda double espresso ve kadifemsi sıcak süt dengesi.",
-          tag: "Dengeli",
-          img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=260&q=80"
-        },
-        {
-          name: "Spanish Latte",
-          price: "125 ₺",
-          desc: "Espresso, yoğunlaştırılmış tatlı süt ve vanilya esansı.",
-          tag: "Tatlı Sever",
-          img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=260&q=80"
-        }
-      ],
-      soguk: [
-        {
-          name: "Cold Brew (18 Saat)",
-          price: "125 ₺",
-          desc: "Özel harmanla 18 saatte soğuk damıtılmış pürüzsüz kahve.",
-          tag: "Özel Kavrum",
-          img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=260&q=80"
-        },
-        {
-          name: "Iced Caramel Macchiato",
-          price: "130 ₺",
-          desc: "Vanilya şurubu, soğuk taze süt, buz ve yoğun karamel katmanı.",
-          tag: "Favori",
-          img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=260&q=80"
-        },
-        {
-          name: "Iced Americano",
-          price: "95 ₺",
-          desc: "Buz, filtrelenmiş soğuk su ve çift shot taze espresso.",
-          tag: "Klasik",
-          img: "https://images.unsplash.com/photo-1551030173-122aabc4489c?auto=format&fit=crop&w=260&q=80"
-        }
-      ],
-      kahvalti: [
-        {
-          name: "Nomad Kruvasan Sandviç",
-          price: "165 ₺",
-          desc: "Fırından taze tereyağlı kruvasan, dana füme, kaşar ve labne peynir.",
-          tag: "Doyurucu",
-          img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=260&q=80"
-        },
-        {
-          name: "Kurutulmuş Domatesli Tost",
-          price: "120 ₺",
-          desc: "Ekşi maya ekmeğine eriyen kaşar, kuru domates ve kekik zeytinyağı.",
-          tag: "Çıtır",
-          img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=260&q=80"
-        }
-      ],
-      tatli: [
-        {
-          name: "San Sebastian Cheesecake",
-          price: "145 ₺",
-          desc: "Akışkan iç doku, eritilmiş sıcak Belçika çikolatası sosuyla.",
-          tag: "Çok Satan",
-          img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=260&q=80"
-        },
-        {
-          name: "Belçika Çikolatalı Cookie",
-          price: "85 ₺",
-          desc: "İçi yumuşak dışı kıtır fırın kurabiyesi, iri sütlü ve bitter çikolata.",
-          tag: "Fırından",
-          img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=260&q=80"
-        }
-      ]
+    let recipe = {
+      temp: 'Sıcak',
+      base: 'Latte',
+      basePrice: 85,
+      milk: 'Normal Süt',
+      milkPrice: 0,
+      syrup: 'Şurupsuz',
+      syrupPrice: 0,
+      shot: 'Tek Shot',
+      shotPrice: 0
     };
+
+    function selectOption(type, el, price, name) {
+      document.querySelectorAll(`[data-type="${type}"]`).forEach(btn => btn.classList.remove('active'));
+      el.classList.add('active');
+
+      if (type === 'temp') recipe.temp = name;
+      if (type === 'base') { recipe.base = name; recipe.basePrice = price; }
+      if (type === 'milk') { recipe.milk = name; recipe.milkPrice = price; }
+      if (type === 'syrup') { recipe.syrup = name; recipe.syrupPrice = price; }
+      if (type === 'shot') { recipe.shot = name; recipe.shotPrice = price; }
+
+      updateRecipePreview();
+    }
+
+    function updateRecipePreview() {
+      const total = recipe.basePrice + recipe.milkPrice + recipe.syrupPrice + recipe.shotPrice;
+      document.getElementById('livePriceText').innerText = total + " ₺";
+      document.getElementById('craftTitle').innerText = `${recipe.temp} ${recipe.base}`;
+      
+      let extras = [];
+      if (recipe.milk !== 'Normal Süt') extras.push(recipe.milk);
+      if (recipe.syrup !== 'Şurupsuz') extras.push(recipe.syrup);
+      if (recipe.shotPrice > 0) extras.push("Double Shot");
+      
+      document.getElementById('craftSub').innerText = extras.length > 0 ? extras.join(" • ") : "Standart reçete ile hazırlanır";
+
+      const milkEl = document.getElementById('cupMilk');
+      if (recipe.milk === 'Yulaf Sütü') milkEl.style.backgroundColor = '#d8b993';
+      else if (recipe.milk === 'Badem Sütü') milkEl.style.backgroundColor = '#ebd6bc';
+      else milkEl.style.backgroundColor = '#d4a373';
+    }
+
+    function openReceipt() {
+      const total = recipe.basePrice + recipe.milkPrice + recipe.syrupPrice + recipe.shotPrice;
+      const html = `
+        <div><b>Taban:</b> ${recipe.temp} ${recipe.base} (${recipe.basePrice} ₺)</div>
+        <div><b>Süt:</b> ${recipe.milk} (${recipe.milkPrice > 0 ? '+' + recipe.milkPrice + ' ₺' : 'Normal'})</div>
+        <div><b>Aroma:</b> ${recipe.syrup} (${recipe.syrupPrice > 0 ? '+' + recipe.syrupPrice + ' ₺' : 'Yok'})</div>
+        <div><b>Espresso:</b> ${recipe.shot} (${recipe.shotPrice > 0 ? '+' + recipe.shotPrice + ' ₺' : 'Tek'})</div>
+        <div style="margin-top: 8px; font-weight: 700; color: var(--warm-fire); font-size: 1.05rem;">Toplam: ${total} ₺</div>
+      `;
+      document.getElementById('receiptContent').innerHTML = html;
+      document.getElementById('receiptModal').classList.add('active');
+    }
+
+    function closeReceipt() {
+      document.getElementById('receiptModal').classList.remove('active');
+    }
 
     function hideAll() {
       document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
@@ -709,21 +917,45 @@
       window.scrollTo(0,0);
     }
 
+    function showCrafter() {
+      hideAll();
+      document.getElementById('view-crafter').classList.add('active');
+      window.scrollTo(0,0);
+    }
+
     function showCategories() {
       hideAll();
       document.getElementById('view-categories').classList.add('active');
       window.scrollTo(0,0);
     }
 
+    const menuData = {
+      sicak: [
+        { name: "Flat White", price: "110 ₺", desc: "Çift shot ristretto espresso ve mikro süt köpüğü.", tag: "İmza", img: "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=260&q=80" },
+        { name: "Cortado", price: "100 ₺", desc: "Eşit oranda double espresso ve kadifemsi sıcak süt.", tag: "Dengeli", img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=260&q=80" },
+        { name: "Spanish Latte", price: "125 ₺", desc: "Espresso, yoğunlaştırılmış tatlı süt ve vanilya esansı.", tag: "Özel", img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=260&q=80" }
+      ],
+      soguk: [
+        { name: "Cold Brew (18 Saat)", price: "125 ₺", desc: "18 saatte soğuk damıtılmış pürüzsüz kahve.", tag: "Özel Kavrum", img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=260&q=80" },
+        { name: "Iced Caramel Macchiato", price: "130 ₺", desc: "Vanilya şurubu, soğuk taze süt, buz ve yoğun karamel.", tag: "Favori", img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=260&q=80" }
+      ],
+      kahvalti: [
+        { name: "Kruvasan Sandviç", price: "165 ₺", desc: "Tereyağlı kruvasan, dana füme, kaşar ve labne peynir.", tag: "Doyurucu", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=260&q=80" },
+        { name: "Kurutulmuş Domatesli Tost", price: "120 ₺", desc: "Ekşi maya ekmeğine kaşar, kuru domates ve kekik zeytinyağı.", tag: "Çıtır", img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=260&q=80" }
+      ],
+      tatli: [
+        { name: "San Sebastian Cheesecake", price: "145 ₺", desc: "Akışkan iç doku, eritilmiş sıcak Belçika çikolatasıyla.", tag: "Çok Satan", img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=260&q=80" },
+        { name: "Belçika Çikolatalı Cookie", price: "85 ₺", desc: "İçi yumuşak dışı kıtır, iri sütlü ve bitter çikolatalı.", tag: "Fırından", img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=260&q=80" }
+      ]
+    };
+
     function openCategory(catKey, catTitle) {
       hideAll();
       document.getElementById('currentCategoryTitle').innerText = catTitle;
-      
       const container = document.getElementById('productsContainer');
       container.innerHTML = '';
 
-      const items = menuData[catKey] || [];
-      items.forEach(item => {
+      (menuData[catKey] || []).forEach(item => {
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
@@ -744,16 +976,12 @@
       window.scrollTo(0,0);
     }
 
-    function notify(text) {
-      const toast = document.getElementById('toast');
-      toast.innerText = text;
-      toast.classList.add('show');
-      setTimeout(() => { toast.classList.remove('show'); }, 2200);
-    }
-
     function copyWifi() {
       navigator.clipboard.writeText("nomadkaravan");
-      notify("📶 Wi-Fi Şifresi Kopyalandı: nomadkaravan");
+      const toast = document.getElementById('toast');
+      toast.innerText = "📶 Wi-Fi Şifresi Kopyalandı: nomadkaravan";
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 2200);
     }
   </script>
 </body>
