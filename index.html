@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Nomad Karavan Coffee | Tatvan</title>
+  <title>Nomad Karavan Coffee | Tatvan Sahil</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #0f0d0c;
-      --card-bg: rgba(26, 21, 18, 0.85);
-      --card-border: rgba(200, 90, 50, 0.2);
+      --card-bg: #1a1614;
+      --card-border: rgba(200, 90, 50, 0.22);
       --terracotta: #c85a32;
-      --terracotta-soft: rgba(200, 90, 50, 0.15);
       --terracotta-glow: rgba(200, 90, 50, 0.35);
       --sand: #ede2d8;
-      --text-main: #fbf7f4;
-      --text-muted: #a39286;
-      --accent-warm: #e07a4f;
+      --text: #fbf7f4;
+      --text-muted: #9e8e82;
+      --accent: #e07a4f;
     }
 
     * {
@@ -33,71 +32,91 @@
 
     body {
       background-color: var(--bg);
-      color: var(--text-main);
-      padding-bottom: 110px;
-      line-height: 1.5;
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(200, 90, 50, 0.18) 0%, transparent 60%),
-        radial-gradient(circle at 10% 40%, rgba(140, 55, 25, 0.1) 0%, transparent 40%);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 90px;
+      line-height: 1.4;
+      background-image: radial-gradient(circle at 50% 0%, rgba(200, 90, 50, 0.18) 0%, transparent 60%);
       background-attachment: fixed;
     }
 
-    /* Hero & Görsel Katmanı */
-    .hero {
-      position: relative;
-      padding: 50px 20px 30px;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(15,13,12,0.4) 0%, var(--bg) 95%),
-                  url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
-      border-bottom: 1px solid var(--card-border);
-      overflow: hidden;
+    .view-section {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
-    .hero-badge {
+    .view-section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Üst Sabit Bar */
+    .top-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--card-border);
+      background: rgba(15, 13, 12, 0.95);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .back-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--sand);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 14px;
-      background: rgba(20, 16, 14, 0.7);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--terracotta);
-      border-radius: 30px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--sand);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-      animation: pulseGlow 3s infinite;
     }
 
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 10px rgba(200, 90, 50, 0.2); }
-      50% { box-shadow: 0 0 22px var(--terracotta-glow); }
+    /* ANA SAYFA VİTRİNİ */
+    .hero-banner {
+      padding: 40px 20px 24px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(15,13,12,0.4) 0%, var(--bg) 95%),
+                  url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80') center/cover;
+      border-bottom: 1px solid var(--card-border);
     }
 
-    .logo-van {
-      width: 78px;
-      height: 78px;
-      margin: 0 auto 16px;
-      background: rgba(27, 21, 18, 0.85);
+    .hero-logo {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 14px;
+      background: #1c1714;
       border: 2px solid var(--terracotta);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 24px var(--terracotta-glow);
-      backdrop-filter: blur(10px);
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 0 24px var(--terracotta-glow);
     }
 
-    .logo-van:active {
-      transform: scale(0.92) rotate(-5deg);
-    }
-
-    .logo-van svg {
-      width: 44px;
-      height: 44px;
+    .hero-logo svg {
+      width: 42px;
+      height: 42px;
       stroke: var(--sand);
       fill: none;
       stroke-width: 1.8;
@@ -107,225 +126,223 @@
 
     h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 700;
-      letter-spacing: -0.5px;
       margin-bottom: 6px;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
     }
 
-    .hero-sub {
+    .hero-desc {
       color: var(--text-muted);
       font-size: 0.88rem;
       max-width: 320px;
-      margin: 0 auto 18px;
+      margin: 0 auto 16px;
     }
 
     .status-capsule {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(25, 20, 17, 0.75);
-      backdrop-filter: blur(12px);
+      background: rgba(26, 22, 20, 0.9);
       border: 1px solid var(--card-border);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.78rem;
+      margin-bottom: 22px;
     }
 
-    .status-dot {
+    .dot {
       width: 8px;
       height: 8px;
       background: #34d399;
       border-radius: 50%;
-      box-shadow: 0 0 10px #34d399;
+      box-shadow: 0 0 8px #34d399;
     }
 
-    /* Karavan Öne Çıkan Not */
-    .story-card {
-      margin: 20px auto 0;
-      max-width: 540px;
-      padding: 0 20px;
-    }
-
-    .story-inner {
-      background: linear-gradient(135deg, rgba(35,27,23,0.7) 0%, rgba(20,16,14,0.7) 100%);
-      border: 1px dashed var(--card-border);
-      border-radius: 16px;
-      padding: 14px 18px;
+    .btn-main-menu {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      backdrop-filter: blur(10px);
-    }
-
-    .story-text h3 {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--sand);
-      margin-bottom: 2px;
-    }
-
-    .story-text p {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .story-badge-icon {
-      font-size: 1.6rem;
-    }
-
-    /* Kategori Barı */
-    .filter-wrapper {
-      position: sticky;
-      top: 0;
-      background: rgba(15, 13, 12, 0.94);
-      backdrop-filter: blur(16px);
-      z-index: 50;
-      border-bottom: 1px solid var(--card-border);
-      padding: 14px 20px;
-    }
-
-    .filter-scroll {
-      display: flex;
+      justify-content: center;
       gap: 10px;
-      overflow-x: auto;
-      scrollbar-width: none;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      background: var(--terracotta);
+      color: #fff;
+      padding: 15px 24px;
+      border-radius: 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 20px var(--terracotta-glow);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-main-menu:active {
+      transform: scale(0.97);
+    }
+
+    /* HARİTA VE LOKASYON ALANI */
+    .section-wrap {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--sand);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 220px;
+      border-radius: 18px;
+      border: 1px solid var(--card-border);
+      overflow: hidden;
+      background: #181513;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(110%);
+    }
+
+    /* 1. KATEGORİ SEÇİM EKRANI (BÜYÜK RESİMLİ KARTLAR) */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding: 20px;
       max-width: 540px;
       margin: 0 auto;
     }
-    .filter-scroll::-webkit-scrollbar { display: none; }
 
-    .cat-pill {
-      background: rgba(28, 22, 19, 0.9);
-      border: 1px solid var(--card-border);
-      color: var(--text-muted);
-      padding: 8px 18px;
-      border-radius: 25px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      white-space: nowrap;
+    .cat-card {
+      position: relative;
+      height: 165px;
+      border-radius: 18px;
+      overflow: hidden;
       cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid var(--card-border);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      background: #1a1614;
     }
 
-    .cat-pill.active {
-      background: var(--terracotta);
-      color: #fff;
+    .cat-card:active {
+      transform: scale(0.97);
       border-color: var(--terracotta);
-      box-shadow: 0 4px 15px var(--terracotta-glow);
-      transform: translateY(-1px);
     }
 
-    /* Menü Izgarası */
-    .menu-wrap {
+    .cat-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .cat-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(15,13,12,0.95) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 14px;
+    }
+
+    .cat-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .cat-count {
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* 2. KATEGORİ DETAY LİSTESİ */
+    .items-container {
       max-width: 540px;
       margin: 0 auto;
       padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
-    .item-card {
+    .product-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 18px;
+      border-radius: 16px;
       padding: 12px;
       display: flex;
       align-items: center;
-      gap: 14px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      backdrop-filter: blur(10px);
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      opacity: 0;
-      transform: translateY(15px);
-      animation: fadeInUp 0.4s forwards ease;
+      gap: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .item-card:hover {
-      border-color: rgba(200, 90, 50, 0.5);
-      transform: translateY(-2px);
-    }
-
-    .item-img {
-      width: 82px;
-      height: 82px;
-      border-radius: 14px;
+    .product-img {
+      width: 78px;
+      height: 78px;
+      border-radius: 12px;
       object-fit: cover;
       flex-shrink: 0;
-      background: #251e1a;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
-    .item-details {
+    .product-info {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
 
-    .item-header {
+    .product-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 4px;
     }
 
-    .item-name {
+    .product-title {
       font-weight: 700;
-      font-size: 0.98rem;
-      color: var(--text-main);
+      font-size: 0.95rem;
+      color: var(--text);
     }
 
-    .item-price {
+    .product-price {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 1.12rem;
-      color: var(--accent-warm);
+      font-size: 1.05rem;
+      color: var(--accent);
     }
 
-    .item-desc {
+    .product-desc {
       font-size: 0.77rem;
       color: var(--text-muted);
       line-height: 1.35;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
-    .item-badges {
-      display: flex;
-      gap: 6px;
-    }
-
-    .tag {
+    .product-tag {
+      display: inline-block;
       font-size: 0.65rem;
       font-weight: 700;
       padding: 2px 7px;
-      border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      border-radius: 5px;
+      background: rgba(200, 90, 50, 0.15);
+      color: var(--accent);
     }
 
-    .tag-featured {
-      background: var(--terracotta-soft);
-      color: var(--accent-warm);
-      border: 1px solid rgba(200, 90, 50, 0.3);
-    }
-
-    .tag-origin {
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--sand);
-    }
-
-    /* Alt Sabit Hızlı Eylemler */
+    /* SABİT ALT BAR */
     .bottom-bar {
       position: fixed;
       bottom: 0;
@@ -333,37 +350,32 @@
       right: 0;
       max-width: 540px;
       margin: 0 auto;
-      background: rgba(18, 15, 13, 0.94);
+      background: rgba(18, 15, 13, 0.96);
       backdrop-filter: blur(18px);
       border-top: 1px solid var(--card-border);
-      padding: 12px 20px;
+      padding: 10px 16px;
       display: flex;
-      gap: 12px;
+      gap: 10px;
       z-index: 100;
     }
 
     .btn-action {
       flex: 1;
-      padding: 13px;
-      border-radius: 14px;
-      font-size: 0.86rem;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       border: none;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.2s ease;
     }
 
-    .btn-action:active {
-      transform: scale(0.97);
-    }
-
-    .btn-maps {
-      background: #231c17;
+    .btn-nav-home {
+      background: #251d18;
       color: var(--sand);
       border: 1px solid var(--card-border);
     }
@@ -371,235 +383,277 @@
     .btn-wifi {
       background: var(--terracotta);
       color: #fff;
-      box-shadow: 0 4px 18px var(--terracotta-glow);
     }
 
-    /* Toast Bildirimi */
+    /* Toast */
     .toast {
       position: fixed;
-      top: 24px;
+      top: 20px;
       left: 50%;
       transform: translateX(-50%) translateY(-100px);
       background: var(--terracotta);
       color: #fff;
-      padding: 12px 22px;
-      border-radius: 30px;
+      padding: 10px 20px;
+      border-radius: 25px;
       font-size: 0.85rem;
       font-weight: 600;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-      transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
       z-index: 200;
     }
-
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
-    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
   </style>
 </head>
 <body>
 
   <div id="toast" class="toast">📶 Wi-Fi Şifresi Kopyalandı: nomadkaravan</div>
 
-  <!-- Hero Bölümü -->
-  <header class="hero">
-    <div class="hero-badge">Specialty Coffee Van</div>
+  <!-- 1. GÖRÜNÜM: ANA SAYFA -->
+  <section id="view-home" class="view-section active">
+    <div class="hero-banner">
+      <div class="hero-logo">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 17V7a2 2 0 0 1 2-2h11a3 3 0 0 1 3 3v2h2a2 2 0 0 1 2 2v5h-2" />
+          <path d="M7 8h4v4H7z" />
+          <path d="M15 8h2v4h-2z" />
+          <path d="M21 16h2" />
+          <circle cx="7" cy="17" r="2" />
+          <circle cx="17" cy="17" r="2" />
+        </svg>
+      </div>
+      <h1>NOMAD KARAVAN</h1>
+      <p class="hero-desc">Nitelikli kahveler, taze atıştırmalıklar ve Tatvan sahil esintisi.</p>
+      
+      <div class="status-capsule">
+        <div class="dot"></div>
+        <span>Tatvan Sahil Kordonu • Açık</span>
+      </div>
 
-    <div class="logo-van">
-      <!-- Minimalist Karavan Logosu -->
-      <svg viewBox="0 0 24 24">
-        <path d="M3 17V7a2 2 0 0 1 2-2h11a3 3 0 0 1 3 3v2h2a2 2 0 0 1 2 2v5h-2" />
-        <path d="M7 8h4v4H7z" />
-        <path d="M15 8h2v4h-2z" />
-        <path d="M21 16h2" />
-        <circle cx="7" cy="17" r="2" />
-        <circle cx="17" cy="17" r="2" />
-      </svg>
+      <button class="btn-main-menu" onclick="showCategories()">
+        📖 MENÜYÜ İNCELE
+      </button>
     </div>
 
-    <h1>NOMAD KARAVAN</h1>
-    <p class="hero-sub">Göl kenarında taze kavrum kahveler, fırından yeni çıkmış lezzetler.</p>
-
-    <div class="status-capsule">
-      <div class="status-dot"></div>
-      <span>Tatvan Sahil Kordonu • Açık</span>
-    </div>
-
-    <!-- Karavan Hikaye Şeridi -->
-    <div class="story-card">
-      <div class="story-inner">
-        <div class="story-text">
-          <h3>Tek Köken Çekirdekler</h3>
-          <p>Etiyopya, Kolombiya ve Brezilya'dan haftalık taze kavrum.</p>
-        </div>
-        <div class="story-badge-icon">☕</div>
+    <!-- Sahil Haritası -->
+    <div class="section-wrap">
+      <div class="section-title">
+        📍 Karavanın Konumu
+      </div>
+      <div class="map-frame">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12536.812318765415!2d42.2789!3d38.5025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x400c4391cf8e9c9f%3A0x2db4a15a0c87ad52!2sTatvan%20Sahili!5e0!3m2!1str!2str!4v1700000000000" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- Kategori Filtresi -->
-  <div class="filter-wrapper">
-    <div class="filter-scroll">
-      <button class="cat-pill active" onclick="filterCategory('all', this)">Tümü</button>
-      <button class="cat-pill" onclick="filterCategory('sicak', this)">Sıcak Kahveler</button>
-      <button class="cat-pill" onclick="filterCategory('soguk', this)">Buzlu Kahveler</button>
-      <button class="cat-pill" onclick="filterCategory('demleme', this)">Manual Brew / V60</button>
-      <button class="cat-pill" onclick="filterCategory('tatli', this)">Fırın & Tatlı</button>
+  <!-- 2. GÖRÜNÜM: KATEGORİ SEÇİM EKRANI -->
+  <section id="view-categories" class="view-section">
+    <div class="top-header">
+      <span class="brand-title">Nomad Menü</span>
+      <button class="back-btn" onclick="showHome()">← Ana Sayfa</button>
     </div>
-  </div>
 
-  <!-- Menü Listesi -->
-  <main class="menu-wrap" id="menuContainer">
-
-    <!-- Sıcak -->
-    <div class="item-card" data-cat="sicak">
-      <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=260&q=80" class="item-img" alt="Flat White">
-      <div class="item-details">
-        <div class="item-header">
-          <span class="item-name">Flat White</span>
-          <span class="item-price">110 ₺</span>
-        </div>
-        <div class="item-desc">Çift shot ristretto espresso ve ipeksi mikro dokulu taze süt.</div>
-        <div class="item-badges">
-          <span class="tag tag-featured">Öneri</span>
-          <span class="tag tag-origin">Yoğun</span>
+    <div class="cat-grid">
+      <!-- Sıcak -->
+      <div class="cat-card" onclick="openCategory('sicak', 'Sıcak Kahveler')">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=400&q=80" alt="Sıcak Kahveler">
+        <div class="cat-overlay">
+          <span class="cat-name">Sıcak Kahveler</span>
+          <span class="cat-count">Espresso & Sütlüler</span>
         </div>
       </div>
-    </div>
 
-    <div class="item-card" data-cat="sicak">
-      <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=260&q=80" class="item-img" alt="Cortado">
-      <div class="item-details">
-        <div class="item-header">
-          <span class="item-name">Cortado</span>
-          <span class="item-price">100 ₺</span>
-        </div>
-        <div class="item-desc">Eşit oranda double espresso ve kadifemsi sıcak süt dengesi.</div>
-        <div class="item-badges">
-          <span class="tag tag-origin">Dengeli</span>
+      <!-- Soğuk -->
+      <div class="cat-card" onclick="openCategory('soguk', 'Buzlu Kahveler')">
+        <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=400&q=80" alt="Soğuk Kahveler">
+        <div class="cat-overlay">
+          <span class="cat-name">Soğuk & İced</span>
+          <span class="cat-count">Cold Brew & Latte</span>
         </div>
       </div>
-    </div>
 
-    <div class="item-card" data-cat="sicak">
-      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=260&q=80" class="item-img" alt="Spanish Latte">
-      <div class="item-details">
-        <div class="item-header">
-          <span class="item-name">Spanish Latte</span>
-          <span class="item-price">125 ₺</span>
+      <!-- Kahvaltı & Fırın -->
+      <div class="cat-card" onclick="openCategory('kahvalti', 'Kahvaltılık & Tost')">
+        <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=400&q=80" alt="Kahvaltılık">
+        <div class="cat-overlay">
+          <span class="cat-name">Kahvaltılık & Tost</span>
+          <span class="cat-count">Kruvasan & Sandviç</span>
         </div>
-        <div class="item-desc">Espresso bazı, tatlı yoğunlaştırılmış süt ve vanilya esansı.</div>
-        <div class="item-badges">
-          <span class="tag tag-featured">Tatlı Dokunuş</span>
+      </div>
+
+      <!-- Tatlı & Atıştırmalık -->
+      <div class="cat-card" onclick="openCategory('tatli', 'Tatlılar')">
+        <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=400&q=80" alt="Tatlılar">
+        <div class="cat-overlay">
+          <span class="cat-name">Fırın & Tatlı</span>
+          <span class="cat-count">Cheesecake & Cookie</span>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Soğuk -->
-    <div class="item-card" data-cat="soguk">
-      <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=260&q=80" class="item-img" alt="Cold Brew">
-      <div class="item-details">
-        <div class="item-header">
-          <span class="item-name">Cold Brew (18 Saat)</span>
-          <span class="item-price">125 ₺</span>
-        </div>
-        <div class="item-desc">Buzlu damıtma kulesinde 18 saatte demlenen berrak tat.</div>
-        <div class="item-badges">
-          <span class="tag tag-featured">İmza</span>
-          <span class="tag tag-origin">Sert</span>
-        </div>
-      </div>
+  <!-- 3. GÖRÜNÜM: SEÇİLEN KATEGORİ DETAY LİSTESİ -->
+  <section id="view-products" class="view-section">
+    <div class="top-header">
+      <span class="brand-title" id="currentCategoryTitle">Kategori</span>
+      <button class="back-btn" onclick="showCategories()">← Kategoriler</button>
     </div>
 
-    <div class="item-card" data-cat="soguk">
-      <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=260&q=80" class="item-img" alt="Iced Caramel Macchiato">
-      <div class="item-details">
-        <div class="item-header">
-          <span class="item-name">Iced Caramel Macchiato</span>
-          <span class="item-price">130 ₺</span>
-        </div>
-        <div class="item-desc">Vanilya şurubu, soğuk süt, buz, espresso ve karamel gezdirme.</div>
-        <div class="item-badges">
-          <span class="tag tag-featured">Popüler</span>
-        </div>
-      </div>
+    <div class="items-container" id="productsContainer">
+      <!-- JavaScript dinamik dolduracak -->
     </div>
+  </section>
 
-    <!-- Demleme -->
-    <div class="item-card" data-cat="demleme">
-      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=260&q=80" class="item-img" alt="V60 Ethiopia">
-      <div class="item-details">
-        <div class="item-header">
-          <span class="item-name">V60 Ethiopia Yirgacheffe</span>
-          <span class="item-price">140 ₺</span>
-        </div>
-        <div class="item-desc">Yasemin, bergamot ve şeftali aromalı hafif gövdeli filtre kahve.</div>
-        <div class="item-badges">
-          <span class="tag tag-origin">Single Origin</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tatlı -->
-    <div class="item-card" data-cat="tatli">
-      <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=260&q=80" class="item-img" alt="San Sebastian">
-      <div class="item-details">
-        <div class="item-header">
-          <span class="item-name">San Sebastian</span>
-          <span class="item-price">145 ₺</span>
-        </div>
-        <div class="item-desc">Yüksek ısıda fırınlanmış akışkan iç dolgu, sıcak çikolata sosu ile.</div>
-        <div class="item-badges">
-          <span class="tag tag-featured">Taze</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="item-card" data-cat="tatli">
-      <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=260&q=80" class="item-img" alt="Cookie">
-      <div class="item-details">
-        <div class="item-header">
-          <span class="item-name">Belçika Çikolatalı Cookie</span>
-          <span class="item-price">85 ₺</span>
-        </div>
-        <div class="item-desc">Dışı gevrek içi yumuşacık, bol bitter ve sütlü çikolata parçalı.</div>
-        <div class="item-badges">
-          <span class="tag tag-origin">Fırından</span>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Sabit Hızlı Eylemler -->
+  <!-- Sabit Alt Eylem Çubuğu -->
   <footer class="bottom-bar">
-    <a href="https://maps.google.com" target="_blank" class="btn-action btn-maps">
-      📍 Sahil Konumu
-    </a>
-    <button class="btn-action btn-wifi" onclick="copyWifiPassword()">
+    <button class="btn-action btn-nav-home" onclick="showHome()">
+      🏠 Ana Sayfa
+    </button>
+    <button class="btn-action btn-wifi" onclick="copyWifi()">
       📶 Wi-Fi Şifresi
     </button>
   </footer>
 
   <script>
-    function filterCategory(category, element) {
-      document.querySelectorAll('.cat-pill').forEach(btn => btn.classList.remove('active'));
-      element.classList.add('active');
-
-      const items = document.querySelectorAll('.item-card');
-      items.forEach((item, index) => {
-        const itemCat = item.getAttribute('data-cat');
-        if (category === 'all' || itemCat === category) {
-          item.style.display = 'flex';
-          item.style.animation = 'none';
-          item.offsetHeight; // reflow tetikleyici
-          item.style.animation = `fadeInUp 0.35s ease forwards ${index * 0.04}s`;
-        } else {
-          item.style.display = 'none';
+    // ÜRÜN VERİTABANI
+    const menuData = {
+      sicak: [
+        {
+          name: "Flat White",
+          price: "110 ₺",
+          desc: "Çift shot ristretto espresso ve mikro süt köpüğü.",
+          tag: "İmza",
+          img: "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=260&q=80"
+        },
+        {
+          name: "Cortado",
+          price: "100 ₺",
+          desc: "Eşit oranda double espresso ve kadifemsi sıcak süt.",
+          tag: "Dengeli",
+          img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=260&q=80"
+        },
+        {
+          name: "Spanish Latte",
+          price: "125 ₺",
+          desc: "Espresso, yoğunlaştırılmış süt ve vanilya esansı.",
+          tag: "Öneri",
+          img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=260&q=80"
         }
-      });
+      ],
+      soguk: [
+        {
+          name: "Cold Brew (18 Saat)",
+          price: "125 ₺",
+          desc: "Buzlu damıtma kulesinde 18 saatte demlenen berrak tat.",
+          tag: "Özel Kavrum",
+          img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=260&q=80"
+        },
+        {
+          name: "Iced Caramel Macchiato",
+          price: "130 ₺",
+          desc: "Vanilya şurubu, soğuk süt, buz ve yoğun karamel sosu.",
+          tag: "Favori",
+          img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=260&q=80"
+        },
+        {
+          name: "Iced Americano",
+          price: "95 ₺",
+          desc: "Buz, filtrelenmiş soğuk su ve çift shot espresso.",
+          tag: "Klasik",
+          img: "https://images.unsplash.com/photo-1551030173-122aabc4489c?auto=format&fit=crop&w=260&q=80"
+        }
+      ],
+      kahvalti: [
+        {
+          name: "Nomad Kruvasan Sandviç",
+          price: "165 ₺",
+          desc: "Fırından taze tereyağlı kruvasan, dana füme, kaşar ve labne.",
+          tag: "Doyurucu",
+          img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=260&q=80"
+        },
+        {
+          name: "Kurutulmuş Domatesli Sıcak Tost",
+          price: "120 ₺",
+          desc: "Ekşi maya ekmeğe kaşar peyniri, fesleğen ve zeytinyağı.",
+          tag: "Taze",
+          img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=260&q=80"
+        },
+        {
+          name: "Granola & Yoğurt Kasesi",
+          price: "115 ₺",
+          desc: "Süzme yoğurt, ev yapımı fırın granola, bal ve mevsim meyveleri.",
+          tag: "Hafif",
+          img: "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=260&q=80"
+        }
+      ],
+      tatli: [
+        {
+          name: "San Sebastian Cheesecake",
+          price: "145 ₺",
+          desc: "Akışkan iç kıvam, eritilmiş sıcak Belçika çikolatası ile.",
+          tag: "Çok Satan",
+          img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=260&q=80"
+        },
+        {
+          name: "Belçika Çikolatalı Cookie",
+          price: "85 ₺",
+          desc: "İçi yumuşak dışı kıtır, bol bitter ve sütlü çikolata parçalı.",
+          tag: "Fırından",
+          img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=260&q=80"
+        }
+      ]
+    };
+
+    // SAYFA GEÇİŞ FONKSİYONLARI
+    function hideAll() {
+      document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
     }
 
-    function copyWifiPassword() {
+    function showHome() {
+      hideAll();
+      document.getElementById('view-home').classList.add('active');
+      window.scrollTo(0,0);
+    }
+
+    function showCategories() {
+      hideAll();
+      document.getElementById('view-categories').classList.add('active');
+      window.scrollTo(0,0);
+    }
+
+    function openCategory(catKey, catTitle) {
+      hideAll();
+      document.getElementById('currentCategoryTitle').innerText = catTitle;
+      
+      const container = document.getElementById('productsContainer');
+      container.innerHTML = '';
+
+      const items = menuData[catKey] || [];
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${item.img}" class="product-img" alt="${item.name}">
+          <div class="product-info">
+            <div class="product-header">
+              <span class="product-title">${item.name}</span>
+              <span class="product-price">${item.price}</span>
+            </div>
+            <div class="product-desc">${item.desc}</div>
+            <span class="product-tag">${item.tag}</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      document.getElementById('view-products').classList.add('active');
+      window.scrollTo(0,0);
+    }
+
+    function copyWifi() {
       navigator.clipboard.writeText("nomadkaravan");
       const toast = document.getElementById('toast');
       toast.classList.add('show');
