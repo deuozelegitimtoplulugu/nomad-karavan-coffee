@@ -20,6 +20,7 @@
       --sand: #ede2d8;
       --text: #fdfaf7;
       --text-muted: #998a80;
+      --success: #22c55e;
     }
 
     * {
@@ -86,10 +87,10 @@
       cursor: pointer;
     }
 
-    /* GECE & KAMP ATEŞİ HERO */
+    /* HERO BÖLÜMÜ */
     .hero-banner {
       position: relative;
-      padding: 65px 20px 40px;
+      padding: 65px 20px 38px;
       text-align: center;
       background: 
         linear-gradient(180deg, rgba(11, 9, 8, 0.3) 0%, rgba(11, 9, 8, 0.85) 75%, var(--bg) 100%),
@@ -98,41 +99,21 @@
       overflow: hidden;
     }
 
-    /* Ateş Közü Canlı Parıltı Efekti */
-    .hero-banner::after {
-      content: '';
-      position: absolute;
-      bottom: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 260px;
-      height: 90px;
-      background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.35) 0%, rgba(217, 98, 43, 0.2) 50%, transparent 80%);
-      filter: blur(20px);
-      pointer-events: none;
-      animation: emberFlicker 3s infinite alternate ease-in-out;
-    }
-
-    @keyframes emberFlicker {
-      0% { opacity: 0.6; transform: translateX(-50%) scale(0.95); }
-      100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
-    }
-
     .hero-banner h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.3rem;
+      font-size: 2.25rem;
       font-weight: 800;
       letter-spacing: 1px;
       color: #fff;
       text-transform: uppercase;
       text-shadow: 0 4px 20px rgba(0,0,0,0.8), 0 0 35px var(--ember-glow);
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .cta-container {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       max-width: 320px;
       margin: 0 auto;
       position: relative;
@@ -140,9 +121,9 @@
     }
 
     .btn-main {
-      padding: 14px 22px;
-      border-radius: 16px;
-      font-size: 0.95rem;
+      padding: 13px 20px;
+      border-radius: 14px;
+      font-size: 0.92rem;
       font-weight: 700;
       border: none;
       cursor: pointer;
@@ -150,6 +131,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      text-decoration: none;
       transition: transform 0.2s ease;
     }
 
@@ -161,37 +143,179 @@
       box-shadow: 0 6px 25px var(--ember-glow);
     }
 
+    .btn-reserve {
+      background: #1e1814;
+      border: 1px solid var(--ember);
+      color: var(--warm-fire);
+    }
+
     .btn-menu {
       background: rgba(24, 20, 18, 0.85);
       border: 1px solid var(--card-border);
       color: var(--sand);
-      backdrop-filter: blur(8px);
     }
 
     /* Kapsayıcılar */
     .section-wrap {
       max-width: 540px;
       margin: 0 auto;
-      padding: 22px 18px 4px;
+      padding: 20px 18px 4px;
     }
 
-    .section-head {
+    /* DİJİTAL SADAKAT KARTI (5+1) */
+    .loyalty-card {
+      background: linear-gradient(135deg, #201713 0%, #120e0c 100%);
+      border: 1px solid var(--ember);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .loyalty-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .loyalty-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--sand);
+    }
+
+    .loyalty-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: rgba(217, 98, 43, 0.2);
+      color: var(--warm-fire);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .stamps-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .stamp-box {
+      aspect-ratio: 1;
+      background: #171210;
+      border: 1px dashed var(--card-border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #40342d;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .stamp-box.earned {
+      background: var(--ember);
+      border-color: var(--ember);
+      color: #fff;
+      box-shadow: 0 0 12px var(--ember-glow);
+      transform: scale(1.05);
+    }
+
+    .stamp-box.free-coffee {
+      border: 2px solid var(--warm-fire);
+      color: var(--warm-fire);
+      font-weight: 800;
+      font-size: 0.75rem;
+    }
+
+    .stamp-box.free-coffee.earned {
+      background: var(--success);
+      border-color: var(--success);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+    }
+
+    .loyalty-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
     }
 
-    .section-title {
-      font-size: 0.96rem;
-      font-weight: 700;
+    .loyalty-info {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .btn-stamp {
+      background: #231b17;
+      border: 1px solid var(--card-border);
       color: var(--sand);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    /* REZERVASYON FORMU */
+    .reserve-wrap {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 20px 18px 110px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--sand);
+      margin-bottom: 8px;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 13px 16px;
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .form-input:focus, .form-select:focus {
+      border-color: var(--ember);
+    }
+
+    .btn-submit-reserve {
+      width: 100%;
+      background: var(--ember);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 6px 20px var(--ember-glow);
+      margin-top: 20px;
     }
 
-    /* KENDİ KAHVENİ TASARLA STÜDYOSU */
+    /* KENDİ KAHVENİ TASARLA */
     .crafter-wrap {
       max-width: 540px;
       margin: 0 auto;
@@ -310,7 +434,6 @@
       color: #ffe6dc;
     }
 
-    /* Crafter Sabit Alt Bar */
     .crafter-bottom {
       position: fixed;
       bottom: 0;
@@ -329,11 +452,6 @@
       z-index: 100;
     }
 
-    .crafter-total {
-      display: flex;
-      flex-direction: column;
-    }
-
     .crafter-total span {
       font-size: 0.72rem;
       color: var(--text-muted);
@@ -345,6 +463,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1.45rem;
       color: var(--warm-fire);
+      display: block;
     }
 
     .btn-show-barista {
@@ -534,24 +653,7 @@
       display: inline-block;
     }
 
-    /* Harita */
-    .map-frame {
-      width: 100%;
-      height: 180px;
-      border-radius: 16px;
-      border: 1px solid var(--card-border);
-      overflow: hidden;
-      margin-top: 8px;
-    }
-
-    .map-frame iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(110%);
-    }
-
-    /* Alt Sabit Bar */
+    /* Alt Sabit Bar (Konum Tuşu Buraya Alındı) */
     .bottom-bar {
       position: fixed;
       bottom: 0;
@@ -559,7 +661,7 @@
       right: 0;
       max-width: 540px;
       margin: 0 auto;
-      background: rgba(14, 11, 10, 0.95);
+      background: rgba(14, 11, 10, 0.96);
       backdrop-filter: blur(18px);
       border-top: 1px solid var(--card-border);
       padding: 10px 16px;
@@ -570,9 +672,9 @@
 
     .btn-action {
       flex: 1;
-      padding: 11px;
+      padding: 12px;
       border-radius: 12px;
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       font-weight: 700;
       display: flex;
       align-items: center;
@@ -580,15 +682,16 @@
       gap: 6px;
       border: none;
       cursor: pointer;
+      text-decoration: none;
     }
 
-    .btn-nav-home {
-      background: #201814;
-      color: var(--sand);
+    .btn-action-maps {
+      background: #221a16;
       border: 1px solid var(--card-border);
+      color: var(--sand);
     }
 
-    .btn-wifi {
+    .btn-action-wifi {
       background: var(--ember);
       color: #fff;
     }
@@ -637,29 +740,83 @@
         <button class="btn-main btn-craft" onclick="showCrafter()">
           🔥 KENDİ KAHVENİ TASARLA
         </button>
+        <button class="btn-main btn-reserve" onclick="showReserve()">
+          📅 ATEŞ BAŞI REZERVASYON
+        </button>
         <button class="btn-main btn-menu" onclick="showCategories()">
           📖 Menüyü İncele
         </button>
       </div>
     </div>
 
-    <!-- Harita -->
+    <!-- DİJİTAL SADAKAT KARTI KUTUSU -->
     <div class="section-wrap">
-      <div class="section-head">
-        <span class="section-title">📍 Karavan Konumu</span>
-        <span style="font-size: 0.74rem; color: var(--warm-fire);">09:00 - 23:30</span>
-      </div>
-      <div class="map-frame">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12536.812318765415!2d42.2789!3d38.5025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x400c4391cf8e9c9f%3A0x2db4a15a0c87ad52!2sTatvan%20Sahili!5e0!3m2!1str!2str!4v1700000000000" 
-          allowfullscreen="" 
-          loading="lazy">
-        </iframe>
+      <div class="loyalty-card">
+        <div class="loyalty-header">
+          <span class="loyalty-title">☕ Nomad Sahil Kartı</span>
+          <span class="loyalty-badge" id="loyaltyBadgeText">5+1 Kampanyası</span>
+        </div>
+        
+        <div class="stamps-row" id="stampsContainer">
+          <div class="stamp-box" id="s1">☕</div>
+          <div class="stamp-box" id="s2">☕</div>
+          <div class="stamp-box" id="s3">☕</div>
+          <div class="stamp-box" id="s4">☕</div>
+          <div class="stamp-box" id="s5">☕</div>
+          <div class="stamp-box free-coffee" id="s6">HEDİYE</div>
+        </div>
+
+        <div class="loyalty-footer">
+          <div class="loyalty-info" id="loyaltyInfoText">Her kahvede 1 damga kazanırsın.</div>
+          <button class="btn-stamp" onclick="promptBaristaStamp()">+ Damga Ekle</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. GÖRÜNÜM: KENDİ KAHVENİ TASARLA -->
+  <!-- 2. GÖRÜNÜM: REZERVASYON SAYFASI -->
+  <section id="view-reserve" class="view-section">
+    <div class="top-header">
+      <span class="brand-title">Masa & Ateş Başı Rezervasyon</span>
+      <button class="back-btn" onclick="showHome()">← Vazgeç</button>
+    </div>
+
+    <div class="reserve-wrap">
+      <div class="form-group">
+        <label class="form-label">Adınız Soyadınız</label>
+        <input type="text" id="resName" class="form-input" placeholder="Örn: Ahmet Can">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Kişi Sayısı</label>
+        <select id="resCount" class="form-select">
+          <option value="2 Kişi">2 Kişi</option>
+          <option value="3-4 Kişi">3 - 4 Kişi</option>
+          <option value="5+ Kişi (Grup)">5+ Kişi (Grup Masası)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tercih Edilen Alan</label>
+        <select id="resArea" class="form-select">
+          <option value="Ateş Başı Karavan Masası">🔥 Ateş Başı Karavan Masası</option>
+          <option value="Göl Manzaralı Sahil Çimi">🌊 Göl Manzaralı Sahil Çimi</option>
+          <option value="Karavan Önü Ayaküstü Bar">☕ Karavan Önü Barı</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Saat / Not</label>
+        <input type="text" id="resTime" class="form-input" placeholder="Örn: Bugün 19:30 gün batımı için">
+      </div>
+
+      <button class="btn-submit-reserve" onclick="submitReservation()">
+        💬 WhatsApp ile Rezervasyon Yap
+      </button>
+    </div>
+  </section>
+
+  <!-- 3. GÖRÜNÜM: KENDİ KAHVENİ TASARLA -->
   <section id="view-crafter" class="view-section">
     <div class="top-header">
       <span class="brand-title">Kahve Tasarımı</span>
@@ -785,7 +942,7 @@
     </div>
   </section>
 
-  <!-- 3. GÖRÜNÜM: KATEGORİ SEÇİMİ -->
+  <!-- 4. GÖRÜNÜM: KATEGORİ SEÇİMİ -->
   <section id="view-categories" class="view-section">
     <div class="top-header">
       <span class="brand-title">Nomad Menü</span>
@@ -827,7 +984,7 @@
     </div>
   </section>
 
-  <!-- 4. GÖRÜNÜM: ÜRÜN LİSTESİ -->
+  <!-- 5. GÖRÜNÜM: ÜRÜN LİSTESİ -->
   <section id="view-products" class="view-section">
     <div class="top-header">
       <span class="brand-title" id="currentCategoryTitle">Kategori</span>
@@ -836,17 +993,110 @@
     <div class="items-container" id="productsContainer"></div>
   </section>
 
-  <!-- Alt Sabit Bar -->
+  <!-- Sabit Alt Bar: Doğrudan Harita Uygulamasını Açan Konum Butonu -->
   <footer class="bottom-bar">
-    <button class="btn-action btn-nav-home" onclick="showHome()">
-      🏠 Ana Sayfa
+    <button class="btn-action btn-action-maps" onclick="showHome()">
+      🏠 Ana Menü
     </button>
-    <button class="btn-action btn-wifi" onclick="copyWifi()">
-      📶 Wi-Fi Şifresi
+    <!-- Tatvan Sahili Doğrudan Google Maps Uygulamasına Yönlendiren Tuş -->
+    <a href="https://www.google.com/maps/search/?api=1&query=Tatvan+Sahil+Kordonu" target="_blank" class="btn-action btn-action-maps">
+      📍 Konuma Git
+    </a>
+    <button class="btn-action btn-action-wifi" onclick="copyWifi()">
+      📶 Wi-Fi
     </button>
   </footer>
 
   <script>
+    // DİJİTAL SADAKAT MOTORU (LocalStorage)
+    let stampCount = parseInt(localStorage.getItem('nomadStamps') || '2'); // Demo için 2 damga hazır gelir
+
+    function renderStamps() {
+      for (let i = 1; i <= 6; i++) {
+        const box = document.getElementById(`s${i}`);
+        if (i <= stampCount) {
+          box.classList.add('earned');
+          if (i === 6) box.innerText = "✓ HAZIR";
+        } else {
+          box.classList.remove('earned');
+          if (i === 6) box.innerText = "HEDİYE";
+        }
+      }
+
+      const info = document.getElementById('loyaltyInfoText');
+      if (stampCount >= 6) {
+        info.innerHTML = "<b style='color: var(--success);'>🎉 Tebrikler! 1 Ücretsiz Kahveniz Hazır.</b>";
+      } else {
+        info.innerText = `Sonraki hediyeye ${6 - stampCount} damga kaldı.`;
+      }
+    }
+
+    function promptBaristaStamp() {
+      const pin = prompt("Barista Doğrulama Kodu (Demo için: 1234):");
+      if (pin === "1234") {
+        if (stampCount >= 6) {
+          stampCount = 0;
+          alert("Hediye kahveniz tanımlandı! Yeni kartınız açıldı.");
+        } else {
+          stampCount++;
+          notify("☕ Damga Kartınıza Eklendi!");
+        }
+        localStorage.setItem('nomadStamps', stampCount);
+        renderStamps();
+      } else if (pin !== null) {
+        alert("Hatalı barista kodu!");
+      }
+    }
+
+    // REZERVASYON GÖNDERME (WhatsApp)
+    function submitReservation() {
+      const name = document.getElementById('resName').value.trim();
+      const count = document.getElementById('resCount').value;
+      const area = document.getElementById('resArea').value;
+      const time = document.getElementById('resTime').value.trim();
+
+      if (!name) {
+        alert("Lütfen adınızı yazın.");
+        return;
+      }
+
+      const message = `Merhaba Nomad Karavan! ☕\nRezervasyon yaptırmak istiyorum:\n👤 İsim: ${name}\n👥 Kişi: ${count}\n📍 Alan: ${area}\n⏰ Saat/Not: ${time || 'Belirtilmedi'}`;
+      
+      // WhatsApp linki
+      const waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    // SAYFA GEÇİŞLERİ
+    function hideAll() {
+      document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+    }
+
+    function showHome() {
+      hideAll();
+      document.getElementById('view-home').classList.add('active');
+      window.scrollTo(0,0);
+    }
+
+    function showReserve() {
+      hideAll();
+      document.getElementById('view-reserve').classList.add('active');
+      window.scrollTo(0,0);
+    }
+
+    function showCrafter() {
+      hideAll();
+      document.getElementById('view-crafter').classList.add('active');
+      window.scrollTo(0,0);
+    }
+
+    function showCategories() {
+      hideAll();
+      document.getElementById('view-categories').classList.add('active');
+      window.scrollTo(0,0);
+    }
+
+    // KAHVE TASARLAMA SEÇİMLERİ
     let recipe = {
       temp: 'Sıcak',
       base: 'Latte',
@@ -907,28 +1157,7 @@
       document.getElementById('receiptModal').classList.remove('active');
     }
 
-    function hideAll() {
-      document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
-    }
-
-    function showHome() {
-      hideAll();
-      document.getElementById('view-home').classList.add('active');
-      window.scrollTo(0,0);
-    }
-
-    function showCrafter() {
-      hideAll();
-      document.getElementById('view-crafter').classList.add('active');
-      window.scrollTo(0,0);
-    }
-
-    function showCategories() {
-      hideAll();
-      document.getElementById('view-categories').classList.add('active');
-      window.scrollTo(0,0);
-    }
-
+    // MENÜ DATASI
     const menuData = {
       sicak: [
         { name: "Flat White", price: "110 ₺", desc: "Çift shot ristretto espresso ve mikro süt köpüğü.", tag: "İmza", img: "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=260&q=80" },
@@ -976,13 +1205,20 @@
       window.scrollTo(0,0);
     }
 
-    function copyWifi() {
-      navigator.clipboard.writeText("nomadkaravan");
+    function notify(text) {
       const toast = document.getElementById('toast');
-      toast.innerText = "📶 Wi-Fi Şifresi Kopyalandı: nomadkaravan";
+      toast.innerText = text;
       toast.classList.add('show');
       setTimeout(() => { toast.classList.remove('show'); }, 2200);
     }
+
+    function copyWifi() {
+      navigator.clipboard.writeText("nomadkaravan");
+      notify("📶 Wi-Fi Şifresi Kopyalandı: nomadkaravan");
+    }
+
+    // Başlangıçta sadakat kartını yükle
+    renderStamps();
   </script>
 </body>
 </html>
