@@ -20,7 +20,7 @@
       --sand: #ede2d8;
       --text: #fdfaf7;
       --text-muted: #998a80;
-      --success: #22c55e;
+      --spotify: #1db954;
     }
 
     * {
@@ -87,13 +87,13 @@
       cursor: pointer;
     }
 
-    /* HERO BÖLÜMÜ */
+    /* GECE & ATEŞ HERO */
     .hero-banner {
       position: relative;
-      padding: 65px 20px 38px;
+      padding: 70px 20px 42px;
       text-align: center;
       background: 
-        linear-gradient(180deg, rgba(11, 9, 8, 0.3) 0%, rgba(11, 9, 8, 0.85) 75%, var(--bg) 100%),
+        linear-gradient(180deg, rgba(11, 9, 8, 0.25) 0%, rgba(11, 9, 8, 0.9) 80%, var(--bg) 100%),
         url('https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       border-bottom: 1px solid var(--card-border);
       overflow: hidden;
@@ -101,167 +101,159 @@
 
     .hero-banner h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.25rem;
+      font-size: 2.35rem;
       font-weight: 800;
       letter-spacing: 1px;
       color: #fff;
       text-transform: uppercase;
       text-shadow: 0 4px 20px rgba(0,0,0,0.8), 0 0 35px var(--ember-glow);
-      margin-bottom: 22px;
     }
 
-    .cta-container {
+    /* İÇERİK KAPSAYICI */
+    .content-wrap {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 24px 18px 10px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      max-width: 320px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 5;
+      gap: 16px;
     }
 
-    .btn-main {
-      padding: 13px 20px;
-      border-radius: 14px;
-      font-size: 0.92rem;
-      font-weight: 700;
+    /* BÜYÜTÜLMÜŞ ANA EYLEM BUTONLARI */
+    .action-buttons-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .big-btn {
+      width: 100%;
+      padding: 17px 20px;
+      border-radius: 18px;
+      font-size: 1.02rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
       border: none;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       text-decoration: none;
-      transition: transform 0.2s ease;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
     }
 
-    .btn-main:active { transform: scale(0.97); }
+    .big-btn:active {
+      transform: scale(0.98);
+    }
 
-    .btn-craft {
+    .big-btn-menu {
       background: linear-gradient(135deg, #d9622b 0%, #b84917 100%);
       color: #fff;
-      box-shadow: 0 6px 25px var(--ember-glow);
+      box-shadow: 0 8px 25px var(--ember-glow);
     }
 
-    .btn-reserve {
-      background: #1e1814;
+    .big-btn-craft {
+      background: #1c1511;
       border: 1px solid var(--ember);
       color: var(--warm-fire);
     }
 
-    .btn-menu {
-      background: rgba(24, 20, 18, 0.85);
+    .big-btn-reserve {
+      background: rgba(24, 20, 18, 0.9);
       border: 1px solid var(--card-border);
       color: var(--sand);
     }
 
-    /* Kapsayıcılar */
-    .section-wrap {
-      max-width: 540px;
-      margin: 0 auto;
-      padding: 20px 18px 4px;
-    }
-
-    /* DİJİTAL SADAKAT KARTI (5+1) */
-    .loyalty-card {
-      background: linear-gradient(135deg, #201713 0%, #120e0c 100%);
-      border: 1px solid var(--ember);
-      border-radius: 20px;
-      padding: 18px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-      margin-bottom: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .loyalty-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-    }
-
-    .loyalty-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--sand);
-    }
-
-    .loyalty-badge {
-      font-size: 0.72rem;
-      font-weight: 700;
-      background: rgba(217, 98, 43, 0.2);
-      color: var(--warm-fire);
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
-
-    .stamps-row {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-
-    .stamp-box {
-      aspect-ratio: 1;
-      background: #171210;
+    /* ETKİLEŞİMLİ KART: GÜNÜN KARAVAN SÖZÜ */
+    .fortune-card {
+      background: linear-gradient(135deg, #1b1512 0%, #120e0c 100%);
       border: 1px dashed var(--card-border);
-      border-radius: 12px;
+      border-radius: 18px;
+      padding: 16px 18px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+
+    .fortune-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--warm-fire);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .fortune-text {
+      font-size: 0.88rem;
+      color: var(--sand);
+      font-style: italic;
+      min-height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
-      color: #40342d;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      margin-bottom: 10px;
     }
 
-    .stamp-box.earned {
-      background: var(--ember);
-      border-color: var(--ember);
-      color: #fff;
-      box-shadow: 0 0 12px var(--ember-glow);
-      transform: scale(1.05);
-    }
-
-    .stamp-box.free-coffee {
-      border: 2px solid var(--warm-fire);
-      color: var(--warm-fire);
-      font-weight: 800;
-      font-size: 0.75rem;
-    }
-
-    .stamp-box.free-coffee.earned {
-      background: var(--success);
-      border-color: var(--success);
-      color: #fff;
-      box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
-    }
-
-    .loyalty-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .loyalty-info {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-    }
-
-    .btn-stamp {
-      background: #231b17;
+    .btn-fortune {
+      background: #251c17;
       border: 1px solid var(--card-border);
       color: var(--sand);
-      font-size: 0.72rem;
+      font-size: 0.76rem;
       font-weight: 700;
-      padding: 5px 12px;
-      border-radius: 14px;
+      padding: 6px 14px;
+      border-radius: 20px;
       cursor: pointer;
     }
 
-    /* REZERVASYON FORMU */
+    /* SPOTIFY SAHİL ÇALMA LİSTESİ */
+    .music-box {
+      background: #111813;
+      border: 1px solid rgba(29, 185, 84, 0.25);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .music-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .music-dot {
+      width: 9px;
+      height: 9px;
+      background: var(--spotify);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--spotify);
+    }
+
+    .music-title {
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .music-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .music-play-badge {
+      background: var(--spotify);
+      color: #000;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 14px;
+    }
+
+    /* REZERVASYON SAYFASI */
     .reserve-wrap {
       max-width: 540px;
       margin: 0 auto;
@@ -302,10 +294,10 @@
       background: var(--ember);
       color: #fff;
       border: none;
-      padding: 14px;
-      border-radius: 14px;
-      font-size: 0.95rem;
-      font-weight: 700;
+      padding: 15px;
+      border-radius: 16px;
+      font-size: 0.96rem;
+      font-weight: 800;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -539,7 +531,7 @@
       width: 100%;
     }
 
-    /* Kategori Ekranı */
+    /* KATEGORİ SEÇİMİ */
     .cat-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -587,7 +579,7 @@
       font-weight: 600;
     }
 
-    /* Ürün Listesi */
+    /* ÜRÜN LİSTESİ */
     .items-container {
       max-width: 540px;
       margin: 0 auto;
@@ -653,7 +645,7 @@
       display: inline-block;
     }
 
-    /* Alt Sabit Bar (Konum Tuşu Buraya Alındı) */
+    /* ALT SABİT BAR */
     .bottom-bar {
       position: fixed;
       bottom: 0;
@@ -733,51 +725,50 @@
 
   <!-- 1. GÖRÜNÜM: ANA SAYFA -->
   <section id="view-home" class="view-section active">
+    <!-- Sade ve Güçlü Başlık -->
     <div class="hero-banner">
       <h1>NOMAD KARAVAN COFFEE</h1>
-
-      <div class="cta-container">
-        <button class="btn-main btn-craft" onclick="showCrafter()">
-          🔥 KENDİ KAHVENİ TASARLA
-        </button>
-        <button class="btn-main btn-reserve" onclick="showReserve()">
-          📅 ATEŞ BAŞI REZERVASYON
-        </button>
-        <button class="btn-main btn-menu" onclick="showCategories()">
-          📖 Menüyü İncele
-        </button>
-      </div>
     </div>
 
-    <!-- DİJİTAL SADAKAT KARTI KUTUSU -->
-    <div class="section-wrap">
-      <div class="loyalty-card">
-        <div class="loyalty-header">
-          <span class="loyalty-title">☕ Nomad Sahil Kartı</span>
-          <span class="loyalty-badge" id="loyaltyBadgeText">5+1 Kampanyası</span>
-        </div>
-        
-        <div class="stamps-row" id="stampsContainer">
-          <div class="stamp-box" id="s1">☕</div>
-          <div class="stamp-box" id="s2">☕</div>
-          <div class="stamp-box" id="s3">☕</div>
-          <div class="stamp-box" id="s4">☕</div>
-          <div class="stamp-box" id="s5">☕</div>
-          <div class="stamp-box free-coffee" id="s6">HEDİYE</div>
-        </div>
-
-        <div class="loyalty-footer">
-          <div class="loyalty-info" id="loyaltyInfoText">Her kahvede 1 damga kazanırsın.</div>
-          <button class="btn-stamp" onclick="promptBaristaStamp()">+ Damga Ekle</button>
-        </div>
+    <div class="content-wrap">
+      <!-- BÜYÜTÜLMÜŞ ANA EYLEM TUŞLARI -->
+      <div class="action-buttons-stack">
+        <button class="big-btn big-btn-menu" onclick="showCategories()">
+          📖 TÜM MENÜYÜ İNCELE
+        </button>
+        <button class="big-btn big-btn-craft" onclick="showCrafter()">
+          🔥 KENDİ KAHVENİ TASARLA
+        </button>
+        <button class="big-btn big-btn-reserve" onclick="showReserve()">
+          📅 ATEŞ BAŞI REZERVASYON
+        </button>
       </div>
+
+      <!-- ETKİLEŞİMLİ GÜNÜN SÖZÜ -->
+      <div class="fortune-card">
+        <div class="fortune-title">✨ Günün Karavan Notu</div>
+        <div class="fortune-text" id="fortuneQuote">"Göl esintisi ve taze çekilmiş kahve; günün yorgunluğunu ateşe bırak."</div>
+        <button class="btn-fortune" onclick="newQuote()">🎲 Başka Bir Not Çek</button>
+      </div>
+
+      <!-- SPOTIFY MÜZİK KUTUSU -->
+      <a href="https://open.spotify.com" target="_blank" class="music-box">
+        <div class="music-info">
+          <div class="music-dot"></div>
+          <div>
+            <div class="music-title">Nomad Sahil Çalma Listesi</div>
+            <div class="music-sub">Karavanda çalan akustik & indie parçalar</div>
+          </div>
+        </div>
+        <div class="music-play-badge">Dinle ▶</div>
+      </a>
     </div>
   </section>
 
   <!-- 2. GÖRÜNÜM: REZERVASYON SAYFASI -->
   <section id="view-reserve" class="view-section">
     <div class="top-header">
-      <span class="brand-title">Masa & Ateş Başı Rezervasyon</span>
+      <span class="brand-title">Ateş Başı Rezervasyon</span>
       <button class="back-btn" onclick="showHome()">← Vazgeç</button>
     </div>
 
@@ -993,12 +984,11 @@
     <div class="items-container" id="productsContainer"></div>
   </section>
 
-  <!-- Sabit Alt Bar: Doğrudan Harita Uygulamasını Açan Konum Butonu -->
+  <!-- Sabit Alt Bar: Harita & Wi-Fi -->
   <footer class="bottom-bar">
     <button class="btn-action btn-action-maps" onclick="showHome()">
-      🏠 Ana Menü
+      🏠 Ana Sayfa
     </button>
-    <!-- Tatvan Sahili Doğrudan Google Maps Uygulamasına Yönlendiren Tuş -->
     <a href="https://www.google.com/maps/search/?api=1&query=Tatvan+Sahil+Kordonu" target="_blank" class="btn-action btn-action-maps">
       📍 Konuma Git
     </a>
@@ -1008,47 +998,20 @@
   </footer>
 
   <script>
-    // DİJİTAL SADAKAT MOTORU (LocalStorage)
-    let stampCount = parseInt(localStorage.getItem('nomadStamps') || '2'); // Demo için 2 damga hazır gelir
+    // GÜNÜN SÖZÜ HAVUZU
+    const quotes = [
+      '"Göl esintisi ve taze çekilmiş kahve; günün yorgunluğunu ateşe bırak."',
+      '"İyi bir kahve, rotası olmayan bir yolculuğun en güzel durağıdır."',
+      '"Akşam serinliğinde sıcak bir Flat White her şeye iyi gelir."',
+      '"Nomad ruhu: Az eşya, derin sohbet, kaliteli kahve."'
+    ];
 
-    function renderStamps() {
-      for (let i = 1; i <= 6; i++) {
-        const box = document.getElementById(`s${i}`);
-        if (i <= stampCount) {
-          box.classList.add('earned');
-          if (i === 6) box.innerText = "✓ HAZIR";
-        } else {
-          box.classList.remove('earned');
-          if (i === 6) box.innerText = "HEDİYE";
-        }
-      }
-
-      const info = document.getElementById('loyaltyInfoText');
-      if (stampCount >= 6) {
-        info.innerHTML = "<b style='color: var(--success);'>🎉 Tebrikler! 1 Ücretsiz Kahveniz Hazır.</b>";
-      } else {
-        info.innerText = `Sonraki hediyeye ${6 - stampCount} damga kaldı.`;
-      }
+    function newQuote() {
+      const random = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('fortuneQuote').innerText = random;
     }
 
-    function promptBaristaStamp() {
-      const pin = prompt("Barista Doğrulama Kodu (Demo için: 1234):");
-      if (pin === "1234") {
-        if (stampCount >= 6) {
-          stampCount = 0;
-          alert("Hediye kahveniz tanımlandı! Yeni kartınız açıldı.");
-        } else {
-          stampCount++;
-          notify("☕ Damga Kartınıza Eklendi!");
-        }
-        localStorage.setItem('nomadStamps', stampCount);
-        renderStamps();
-      } else if (pin !== null) {
-        alert("Hatalı barista kodu!");
-      }
-    }
-
-    // REZERVASYON GÖNDERME (WhatsApp)
+    // REZERVASYON (WhatsApp)
     function submitReservation() {
       const name = document.getElementById('resName').value.trim();
       const count = document.getElementById('resCount').value;
@@ -1061,10 +1024,7 @@
       }
 
       const message = `Merhaba Nomad Karavan! ☕\nRezervasyon yaptırmak istiyorum:\n👤 İsim: ${name}\n👥 Kişi: ${count}\n📍 Alan: ${area}\n⏰ Saat/Not: ${time || 'Belirtilmedi'}`;
-      
-      // WhatsApp linki
-      const waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, '_blank');
+      window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
     }
 
     // SAYFA GEÇİŞLERİ
@@ -1096,7 +1056,7 @@
       window.scrollTo(0,0);
     }
 
-    // KAHVE TASARLAMA SEÇİMLERİ
+    // KAHVE TASARLAMA
     let recipe = {
       temp: 'Sıcak',
       base: 'Latte',
@@ -1216,9 +1176,6 @@
       navigator.clipboard.writeText("nomadkaravan");
       notify("📶 Wi-Fi Şifresi Kopyalandı: nomadkaravan");
     }
-
-    // Başlangıçta sadakat kartını yükle
-    renderStamps();
   </script>
 </body>
 </html>
